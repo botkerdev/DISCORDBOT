@@ -1,2 +1,2 @@
 # DISCORDBOT
-discord bot for DJS14
+discord bot for DJS13
