@@ -15,7 +15,7 @@ client.slashcommands = new Collection();
 //몽고디비 연결코드
 mongoose
   .connect(
-    "mongodb+srv://Moon0119:1031a!0119@cluster0.xqmpjkt.mongodb.net/?retryWrites=true&w=majority",
+    "your mongoDB link",
     {}
   )
   .then(console.log("MongoDB 데이터베이스에 연결했습니다"));
@@ -143,5 +143,5 @@ client.on("voiceStateUpdate", async (newState, oldState) => {
 
 //로그인
 client.login(
-  "MTAzNTg2NTk3ODIxNjY2MTAxMg.GroqQ4.RD8wdwcWp9ZWgrlkBUP33Xh2puPDE6caB0fJV4"
+  "TOKEN"
 );
