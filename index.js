@@ -2,7 +2,7 @@
 const { Client, Intents, Collection, Interaction } = require("discord.js");
 const client = new Client({ intents: 32767 });
 const fs = require("fs");
-const { prefix, token } = require("D:/Code/Discordbot/Moon99/config.json");
+const { prefix, token } = require("./config.json");
 const { DiscordTogether } = require("discord-together");
 client.discordTogether = new DiscordTogether(client);
 const mongoose = require("mongoose");
@@ -15,7 +15,7 @@ client.slashcommands = new Collection();
 //몽고디비 연결코드
 mongoose
   .connect(
-    "mongodb+srv://Moon0119:1031a!0119@cluster0.xqmpjkt.mongodb.net/?retryWrites=true&w=majority",
+    "몽고DB ",
     {}
   )
   .then(console.log("MongoDB 데이터베이스에 연결했습니다"));
@@ -83,7 +83,7 @@ for (const file of commandsFile) {
 //오류난 금지어
 client.on("messageCreate", (message) => {
   if (message.channel.type == "DM") return;
-  const Schema = require("D:/Code/Discordbot/Moon99/models/금지어");
+  const Schema = require("./금지어");
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   if (args[1] == "추가" || args[1] == "삭제") return;
   Schema.find({ serverid: message.guild.id }).exec((err, res) => {
@@ -142,6 +142,4 @@ client.on("voiceStateUpdate", async (newState, oldState) => {
 });
 
 //로그인
-client.login(
-  "MTAzNTg2NTk3ODIxNjY2MTAxMg.GroqQ4.RD8wdwcWp9ZWgrlkBUP33Xh2puPDE6caB0fJV4"
-);
+client.login(token)
