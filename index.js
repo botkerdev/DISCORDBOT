@@ -15,8 +15,7 @@ client.slashcommands = new Collection();
 //몽고디비 연결코드
 mongoose
   .connect(
-    "몽고DB ",
-    {}
+    "your mongoDB link",
   )
   .then(console.log("MongoDB 데이터베이스에 연결했습니다"));
 
